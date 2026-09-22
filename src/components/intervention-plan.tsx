@@ -66,7 +66,7 @@ export function InterventionPlan({
         <section className="plan-document">
           <div className="plan-provenance">
             <Image src="/img/AYNI-Twin-App-Icon.png" alt="Símbolo de AYNI Twin" width={38} height={38} />
-            <p><strong>{generatedPlan?.source === "bedrock" ? "Borrador generado con Amazon Bedrock" : "Borrador preparado con respaldo local"}</strong><span>{generatedPlan?.disclaimer ?? "La decisión final pertenece al docente y toda acción requiere revisión humana."}</span></p>
+            <p><strong>Borrador local · Datos sintéticos</strong><span>{generatedPlan?.disclaimer ?? "La decisión final pertenece al docente y toda acción requiere revisión humana."}</span></p>
           </div>
 
           <div className="plan-objective">

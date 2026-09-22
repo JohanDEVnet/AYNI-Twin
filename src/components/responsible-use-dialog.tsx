@@ -4,11 +4,10 @@ import { useEffect, useRef } from "react";
 
 type ResponsibleUseDialogProps = {
   open: boolean;
-  dataMode: "aws" | "fallback" | "connecting";
   onClose: () => void;
 };
 
-export function ResponsibleUseDialog({ open, dataMode, onClose }: ResponsibleUseDialogProps) {
+export function ResponsibleUseDialog({ open, onClose }: ResponsibleUseDialogProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -55,13 +54,13 @@ export function ResponsibleUseDialog({ open, dataMode, onClose }: ResponsibleUse
           <p>Qué ocurre con la información</p>
           <ol>
             <li><span>Señales mínimas</span><small>Solo indicadores educativos necesarios.</small></li>
-            <li><span>Plan estructurado</span><small>Bedrock o fallback validado.</small></li>
+            <li><span>Plan estructurado</span><small>Borrador local basado en la simulación.</small></li>
             <li><span>Decisión docente</span><small>Edición, aprobación y seguimiento.</small></li>
           </ol>
         </div>
 
         <footer>
-          <p><strong>Modo actual</strong><span>{dataMode === "aws" ? "AWS conectado" : dataMode === "connecting" ? "Comprobando conexión" : "Demostración local"}</span></p>
+          <p><strong>Modo actual</strong><span>Demostración local · Datos sintéticos</span></p>
           <small>Antes de usar datos reales se requieren consentimiento, autenticación, autorización institucional, auditoría y una política de retención.</small>
         </footer>
       </section>
