@@ -1,29 +1,18 @@
-# IA responsable en AYNI Twin
+# Uso responsable de AYNI Twin
 
-AYNI Twin es una herramienta de priorización y apoyo docente. No es un sistema de diagnóstico, disciplina, admisión ni calificación automática.
+AYNI Twin es una demostración educativa con 30 perfiles y registros completamente sintéticos. No es un sistema de diagnóstico, disciplina, admisión, calificación automática ni predicción validada. La versión pública no utiliza inteligencia artificial generativa ni recibe datos reales.
 
-## Alcance del demo
+## Lo que muestra la interfaz
 
-- Los 30 nombres y todos los registros son sintéticos.
-- El riesgo es una señal transparente calculada con asistencia, evolución del promedio y actividades pendientes.
-- Amazon Bedrock solo redacta un borrador de intervención a partir de un escenario ya revisado por el docente.
-- La aprobación humana es obligatoria antes de presentar evidencia de impacto.
+- Una señal de riesgo calculada de forma determinista a partir de asistencia, rendimiento y actividades pendientes ficticias.
+- Escenarios hipotéticos que cambian al ajustar opciones de apoyo.
+- Un borrador local editable que requiere aprobación humana dentro del recorrido de demostración.
+- Un resultado de seguimiento **simulado**, no una mejora observada en un estudiante real.
 
-## Controles implementados
+El rótulo “Modo demostración · Datos sintéticos” identifica el alcance del producto. Los porcentajes no son probabilidades científicas ni resultados garantizados.
 
-| Riesgo | Control del MVP |
-| --- | --- |
-| Automatización excesiva | Etiqueta de borrador y aprobación docente explícita |
-| Respuesta inválida del modelo | Validación de estructura y fallback determinista |
-| Lenguaje dañino o determinista | Prompt restrictivo, aviso visible y revisión humana |
-| Exposición en logs | No se registran cuerpos, perfiles completos ni prompts |
-| Caída del proveedor | Datos y plan local de respaldo |
-| Confusión entre estimación y hecho | Impact Proof separa riesgo inicial, estimado y observado |
+## Límites y supervisión
 
-## Límites conocidos
+Los pesos de la fórmula no se han validado con datos reales ni auditado para equidad. No se deben usar para tomar decisiones sobre estudiantes. La aprobación en pantalla solo demuestra un flujo de revisión; no equivale a una autorización institucional.
 
-La fórmula no ha sido validada con datos reales ni auditada para equidad. Los pesos sirven para demostrar el flujo y no deben utilizarse para tomar decisiones sobre estudiantes. Antes de un piloto real se requiere evaluación con educadores, estudiantes y familias; análisis de sesgos; explicación accesible; mecanismo de apelación; y revisión legal de privacidad y protección de menores.
-
-## Regla de producto
-
-La IA propone; el docente comprende, modifica, aprueba y responde por la intervención. Ningún resultado se presenta como destino inevitable del estudiante.
+Antes de considerar un piloto real se necesitarían consentimiento, controles de acceso, protección de menores, evaluación con educadores y familias, auditoría de sesgos, accesibilidad y revisión legal. Ninguna de esas capacidades está implementada en esta versión.

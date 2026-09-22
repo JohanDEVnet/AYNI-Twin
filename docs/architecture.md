@@ -1,55 +1,20 @@
-# Arquitectura de AYNI Twin
+# Arquitectura actual de AYNI Twin
 
-## Recorrido del MVP
+La versión pública es una exportación estática de Next.js alojada en AWS Amplify Hosting. La página y sus recursos se entregan como HTML, CSS, JavaScript e imágenes; las interacciones usan únicamente datos sintéticos y cálculos deterministas en el navegador.
 
 ```text
-Docente
-   │
-   ▼
-Next.js en AWS Amplify Hosting
-   │  HTTPS / JSON
-   ▼
-Amazon API Gateway (HTTP API)
-   │
-   ▼
-AWS Lambda · Node.js 22
-   ├── Amazon DynamoDB · perfiles, escenarios, planes e intervenciones
-   ├── Amazon Bedrock · borrador estructurado del plan de apoyo
-   └── Amazon CloudWatch · trazas técnicas y métricas
+AWS Amplify Hosting (archivos de out/)
+  └── Navegador
+      ├── 30 perfiles sintéticos de src/data/
+      ├── riesgo y escenarios de src/lib/
+      ├── plan editable local
+      └── seguimiento hipotético de Impact Proof
 ```
 
-El frontend intenta leer la API configurada en `NEXT_PUBLIC_API_URL`. Si la API no está configurada, se demora más de cuatro segundos o devuelve un error, conserva el conjunto sintético local. Esta decisión evita que un fallo de red interrumpa la demostración.
+No hay autenticación, API activa, base de datos ni persistencia. Una recarga restablece las acciones de la sesión. No se debe introducir información real de estudiantes.
 
-## Modelo de almacenamiento
+## Prototipo histórico no desplegado
 
-AYNI Twin usa una sola tabla DynamoDB para mantener pequeño el MVP:
+`infrastructure/` y `src/lib/api.ts` conservan código de una exploración técnica anterior. No están conectados a la aplicación pública ni forman parte del despliegue estático. El [diagrama de arquitectura actual](../public/img/AYNI-AWS-Architecture.svg) muestra únicamente navegador, Amplify Hosting y aplicación estática.
 
-| Entidad | PK | SK |
-| --- | --- | --- |
-| Estudiante | `STUDENT#{id}` | `PROFILE` |
-| Escenario | `STUDENT#{id}` | `SCENARIO#{fecha}#{id}` |
-| Plan | `STUDENT#{id}` | `PLAN#{fecha}#{id}` |
-| Intervención | `INTERVENTION#{id}` | `DETAIL` |
-
-La tabla usa cobro por solicitud, cifrado administrado por AWS y recuperación a un punto en el tiempo. El volumen del demo es intencionalmente pequeño; los `Scan` de estudiantes e impacto deben sustituirse por índices cuando el producto deje de ser un prototipo.
-
-## Contrato con Bedrock
-
-La Lambda envía únicamente los indicadores sintéticos necesarios y solicita JSON con un objetivo y entre tres y cinco acciones. La respuesta se valida antes de guardarse. Si el modelo falla, devuelve contenido no válido o no está habilitado en la región, se usa un plan determinista de respaldo.
-
-Toda salida mantiene tres reglas:
-
-1. Se presenta como borrador.
-2. Requiere aprobación del docente.
-3. No formula diagnósticos ni predicciones deterministas.
-
-## Seguridad y operación
-
-- CORS se limita al origen configurado durante el despliegue.
-- La Lambda solo puede operar sobre la tabla del stack e invocar el modelo configurado.
-- No hay claves ni secretos en el repositorio.
-- Los logs son JSON y no incluyen cuerpos, perfiles completos ni prompts.
-- API Gateway y Lambda conservan logs durante 14 días.
-- DynamoDB mantiene los datos si el stack se elimina accidentalmente.
-
-Antes de un uso real se deben añadir autenticación, autorización por institución, consentimiento, retención de datos, auditoría y cifrado con claves administradas por la organización.
+Un uso institucional real requeriría una evaluación independiente de privacidad, seguridad, accesibilidad, validez y supervisión humana. Ese trabajo no forma parte de esta entrega.

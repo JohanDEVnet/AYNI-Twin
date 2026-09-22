@@ -38,7 +38,7 @@
 
 **Voz:**
 
-> Amazon Bedrock produces a structured fourteen-day draft. If the model is unavailable, a validated fallback keeps the workflow running. The teacher can edit every action, responsible person, deadline, and success indicator before approval.
+> AYNI Twin prepares a local fourteen-day draft from the selected scenario. The teacher can edit every action, responsible person, deadline, and success indicator before approving this demonstration plan.
 
 ## 1:53–2:12 · Medir
 
@@ -46,23 +46,23 @@
 
 **Voz:**
 
-> Impact Proof compares the approved estimate with the observed result. The difference is not hidden: it becomes evidence for the next human decision.
+> Impact Proof compares the approved estimate with a hypothetical follow-up. Both are simulated, so this illustrates a review process rather than claiming measured improvement.
 
 ## 2:12–2:30 · AWS y cierre
 
-**Imagen:** Diagrama de arquitectura y regreso al dashboard.
+**Imagen:** Interfaz pública de Amplify y regreso al dashboard.
 
 **Voz:**
 
-> AYNI Twin runs on AWS with Amplify, API Gateway, Lambda, DynamoDB, Bedrock, and CloudWatch. Built with an AI coding agent and designed for responsible, explainable, human-led support. Don’t just predict dropout. Simulate the intervention that can prevent it.
+> AYNI Twin is a static experience hosted on AWS Amplify. Its fictional profiles and deterministic simulations run in the browser. Built with Codex and designed for transparent, human-led support—not for diagnosing or predicting a student's future.
 
 ## Tomas obligatorias
 
 - Favicon y logotipo visibles al inicio.
-- Estado `AWS sincronizado` después del despliegue.
+- Etiqueta `Modo demostración · Datos sintéticos` visible.
 - Tres escenarios visibles al mismo tiempo.
 - Etiqueta de simulación y nivel de confianza legibles.
-- Procedencia `Amazon Bedrock` en el plan real.
+- Procedencia local y carácter sintético del plan visibles.
 - Aprobación humana antes de Impact Proof.
-- Diagrama AWS durante el cierre.
+- URL pública de Amplify durante el cierre.
 - URL pública visible durante al menos tres segundos.

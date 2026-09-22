@@ -1,6 +1,8 @@
 # Flujo de trabajo de AYNI Twin
 
-Este documento define cómo se construirá AYNI Twin para la hackathon. Cada fase debe quedar revisada y verificable antes de avanzar a la siguiente.
+> Registro histórico de planificación y desarrollo. **No describe el despliegue actual.** La versión pública es una exportación estática en Amplify con datos y cálculos locales. Las fases de backend descritas abajo fueron exploraciones técnicas no desplegadas; consulta [la arquitectura actual](architecture.md) y [el runbook estático](deployment-runbook.md).
+
+Este documento conserva decisiones y verificaciones de fases anteriores. Las referencias a integraciones AWS o resultados observados deben leerse como trabajo histórico o planes descartados para la entrega pública.
 
 ## Principios de trabajo
 
@@ -93,7 +95,7 @@ Avance verificado el 19 de septiembre de 2026:
 
 ## Fase 4 — Backend e integración AWS
 
-Estado: en progreso desde el 20 de septiembre de 2026.
+Estado: exploración técnica histórica; no desplegada y fuera del alcance público actual.
 
 Entregables:
 
@@ -144,7 +146,7 @@ Pendiente para cerrar la fase:
 
 ## Fase 5 — Despliegue y evidencia
 
-Estado: preparada localmente; pendiente de autenticación y despliegue AWS.
+Estado: plan histórico reemplazado por el despliegue estático manual en Amplify.
 
 Entregables:
 
@@ -170,7 +172,7 @@ Avance verificado el 20 de septiembre de 2026:
 
 ## Fase 6 — Presentación y entrega
 
-Estado: preparación local en progreso; envío bloqueado hasta contar con URL pública.
+Estado de este registro histórico: la URL pública está disponible; la preparación de materiales de entrega se revisa por separado.
 
 Entregables:
 

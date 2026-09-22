@@ -1,6 +1,8 @@
 # Evidencia del agente de programación
 
-Este registro documenta cómo el agente participa en la construcción y el posterior despliegue de AYNI Twin. No debe incluir credenciales, tokens ni identificadores sensibles.
+> Registro histórico. Las entradas fechadas a continuación reflejan estados anteriores, no la arquitectura de la aplicación pública. La versión actual es estática en AWS Amplify; no se desplegó el prototipo de `infrastructure/`.
+
+Este registro documenta la participación del agente en AYNI Twin. No debe incluir credenciales, tokens ni identificadores sensibles. Codex verificó la aplicación Amplify mediante una consulta AWS CLI de solo lectura; el resultado público muestra una plataforma `WEB`, sin publicar identificadores de cuenta.
 
 ## 19 de septiembre de 2026 — Inicio del proyecto
 

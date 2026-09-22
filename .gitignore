@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+**/node_modules/
 /.tools/
 /.pnp
 .pnp.*
@@ -12,25 +12,40 @@
 !.yarn/versions
 
 # testing
-/coverage
+**/coverage/
 
 # next.js
 /.next/
 /out/
+/.turbo/
 
 # production
 /build
 **/.aws-sam/
+/.aws/
 
 # misc
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.pem
+*.key
+*.p12
+*.pfx
+*.zip
+*.tmp
+*.temp
+*.swp
+*.swo
+/.vscode/
+/.idea/
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
 # env files (can opt-in for committing if needed)
 .env*

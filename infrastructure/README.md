@@ -1,48 +1,7 @@
-# Infraestructura AWS de AYNI Twin
+# Prototipo de infraestructura no desplegado
 
-Esta carpeta contiene un backend reproducible con AWS SAM:
+Esta carpeta conserva una exploración técnica anterior con AWS SAM, API Gateway, Lambda, DynamoDB y Bedrock. **No forma parte de la aplicación pública AYNI Twin y no debe interpretarse como su arquitectura actual.** El sitio publicado es una exportación estática alojada únicamente en AWS Amplify Hosting, con perfiles sintéticos y cálculos locales en el navegador.
 
-- Amazon API Gateway HTTP API para ocho rutas del MVP.
-- Una función AWS Lambda en Node.js 22.
-- Una tabla Amazon DynamoDB con cifrado, recuperación continua y cobro por solicitud.
-- Amazon Bedrock mediante `Converse`, con plan local de respaldo cuando el modelo no está disponible.
-- Logs JSON en CloudWatch con retención de 14 días y sin registrar cuerpos de solicitudes.
+El código se mantiene para documentar el trabajo realizado, no como una guía de despliegue ni como una integración activa. No se han validado aquí controles de seguridad, privacidad, operación o costos para un uso real. No introduzcas datos reales de estudiantes ni ejecutes esta plantilla como parte de la entrega actual.
 
-## Despliegue
-
-Requisitos locales: AWS CLI, AWS SAM CLI y una sesión autenticada.
-
-```bash
-cd infrastructure
-sam build
-sam validate --lint
-sam deploy --guided
-```
-
-Durante `sam deploy --guided`, configura `AllowedOrigin` con el dominio real del frontend. El valor de salida `ApiUrl` se usa como `NEXT_PUBLIC_API_URL`.
-
-Después del primer despliegue, carga los 30 perfiles sintéticos (el comando usa las credenciales AWS de tu sesión):
-
-```bash
-cd infrastructure/functions/api
-npm install
-$env:TABLE_NAME="nombre-devuelto-por-el-stack"
-node seed.mjs
-```
-
-## Rutas
-
-| Método | Ruta | Uso |
-| --- | --- | --- |
-| GET | `/students` | Lista estudiantes sintéticos |
-| GET | `/students/{id}` | Obtiene el Student Twin |
-| POST | `/students/{id}/scenarios` | Guarda una simulación |
-| GET | `/students/{id}/scenarios` | Lista simulaciones |
-| POST | `/students/{id}/intervention-plan` | Genera un borrador con Bedrock o fallback |
-| POST | `/interventions` | Inicia un plan aprobado |
-| PATCH | `/interventions/{id}` | Registra el resultado observado |
-| GET | `/impact` | Resume la evidencia de impacto |
-
-## Protección de datos
-
-El MVP usa exclusivamente nombres y registros sintéticos. La Lambda registra identificadores técnicos, ruta, estado y tipo de error; nunca registra el cuerpo completo ni el prompt. La respuesta de IA siempre se marca como borrador y requiere revisión humana.
+Consulta [la arquitectura actual](../docs/architecture.md) y [el runbook de despliegue estático](../docs/deployment-runbook.md).

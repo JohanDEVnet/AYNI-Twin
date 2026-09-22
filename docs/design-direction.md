@@ -1,5 +1,7 @@
 # Dirección visual de AYNI Twin
 
+> Documento de dirección visual. Las referencias a futuras capacidades no describen servicios activos en la versión pública, que es una demostración estática con datos sintéticos.
+
 ## Concepto: Trayectorias de Ayni
 
 AYNI Twin no se presentará como otro dashboard escolar. Su identidad visual nace de una idea: varias acciones pequeñas pueden cambiar la trayectoria de una persona cuando existe apoyo coordinado.
@@ -44,7 +46,7 @@ La inspiración andina será estructural, no decorativa. Se expresará mediante 
 - `Deep Lake` — `#245B78`: confianza y navegación.
 - `Harvest` — `#D58B32`: atención y riesgo medio.
 - `Terracotta` — `#C95F4A`: riesgo alto, usado con moderación.
-- `Growth` — `#4E8C63`: mejora confirmada.
+- `Growth` — `#4E8C63`: mejora ilustrativa en los escenarios sintéticos.
 
 La paleta deberá comprobarse con contraste WCAG antes de considerarse definitiva.
 
@@ -85,7 +87,7 @@ Los iconos, cuando sean realmente necesarios, representarán acciones concretas:
 - Personas reunidas para tutoría.
 - Bandera o meta para objetivos.
 
-No habrá un icono que represente “IA”. La participación de Bedrock se explicará mediante texto discreto y transparente: “Borrador generado con asistencia de Amazon Bedrock y sujeto a revisión docente”.
+No habrá un icono que represente “IA”. El plan de la versión pública se identifica como borrador local basado en datos sintéticos.
 
 ## Estructura de las pantallas
 
@@ -107,7 +109,7 @@ Se parecerá a un plan de trabajo editable, no a una respuesta de chatbot. Cada 
 
 ### Impact Proof
 
-Mostrará el encuentro entre estimación y realidad mediante dos trayectorias comparables, seguido de una explicación de lo aprendido.
+Mostrará una comparación ilustrativa entre la estimación y un seguimiento hipotético, seguida de una explicación de sus límites.
 
 ## Movimiento
 

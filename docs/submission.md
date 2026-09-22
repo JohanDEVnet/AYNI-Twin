@@ -6,7 +6,7 @@ AYNI Twin: Simulating Better Futures for Students
 
 ## Short description
 
-AYNI Twin creates an explainable academic digital twin that helps teachers understand risk, compare support scenarios, generate a human-reviewed intervention plan, and measure what happened next.
+AYNI Twin is a Spanish-first interactive demo that helps educators inspect fictional early-warning signals, compare support scenarios, draft a human-reviewed plan, and explore a hypothetical follow-up.
 
 ## Problem
 
@@ -14,48 +14,45 @@ Schools often identify academic difficulties only after a student has already fa
 
 ## Solution
 
-AYNI Twin turns synthetic attendance, grade trends, and assignment data into a transparent student model. Teachers can inspect the factors behind a deterministic risk score, simulate five configurable interventions, compare three possible trajectories, and generate a structured fourteen-day support plan with Amazon Bedrock. Every plan remains editable and requires human approval.
+AYNI Twin turns synthetic attendance, grade trends, and assignment data into a transparent student model. Educators can inspect the factors behind a deterministic risk score, adjust five support options, compare three simulated trajectories, and prepare an editable fourteen-day support plan locally in the browser.
 
-After the review period, Impact Proof compares the approved estimate with the observed outcome. The system treats this difference as evidence to improve the next decision instead of hiding uncertainty.
+Impact Proof compares the estimate with a hypothetical follow-up result. Both figures are simulated; the difference illustrates how a future real-world review might prompt a new human decision.
 
 ## What makes it different
 
-Most education AI demos stop at prediction or content generation. AYNI Twin demonstrates a closed, accountable loop:
+AYNI Twin demonstrates a complete, explainable support-planning loop without presenting a simulation as a prediction:
 
 1. Detect a trajectory that needs attention.
 2. Explain observable factors.
 3. Simulate alternative interventions.
 4. Create and approve a practical plan.
-5. Compare the estimate with observed evidence.
+5. Compare the estimate with a fictional follow-up example.
 
-## AWS architecture
+## Current hosting architecture
 
-- AWS Amplify Hosting for the Next.js experience.
-- Amazon API Gateway for the public HTTP API.
-- AWS Lambda for validation, deterministic simulation orchestration, and plan generation.
-- Amazon DynamoDB for synthetic profiles, scenarios, plans, and interventions.
-- Amazon Bedrock for structured plan drafts.
-- Amazon CloudWatch for technical logs and operational evidence.
+- AWS Amplify Hosting serves the static Next.js export.
+- All profiles, calculations, plans, and interactions run locally in the browser.
+- No backend, database, authentication, or generative AI service is used by the public app.
 
-The application keeps a validated local fallback so a temporary model or network failure does not interrupt the demonstration.
+The repository retains an undeployed infrastructure prototype, which is not part of this submission's live architecture.
 
-## Responsible AI
+## Responsible use
 
-AYNI Twin does not diagnose, label, or automatically decide a student’s future. The core risk score is deterministic and visible. Sensitive attributes are excluded. The demo uses only synthetic data, identifies simulations as assumptions, validates Bedrock output, and requires a teacher to review and approve every action.
+AYNI Twin does not diagnose, label, or automatically decide a student’s future. The risk calculation is deterministic and visible. All records and outcomes are synthetic, and a teacher must review the example plan. The model has not been validated for real educational decisions.
 
 ## How the coding agent helped
 
-The coding agent translated the product plan into a phased workflow, implemented and tested the risk and simulation engines, created the complete responsive interface, built the AWS SAM backend, added validation and fallback behavior, and repeatedly verified the user journey in the browser. Human decisions remained responsible for product scope, visual direction, ethical boundaries, and cloud deployment authorization.
+Codex helped implement and test the risk and simulation engines, build the responsive five-stage interface, and verify the static export. The agent also performed a read-only AWS CLI check of the Amplify application. Human decisions determined the product scope, visual direction, ethical boundaries, and deployment authorization.
 
 ## Tags
 
-`#social-good` `#startup` `#amazon-bedrock` `#aws-lambda` `#amazon-dynamodb` `#aws-amplify` `#serverless` `#generative-ai`
+`#social-good` `#startup` `#aws-amplify` `#education`
 
 ## Final links
 
-- Live application: `[PENDING]`
+- Live application: https://main.ds9xcp2xdxwdm.amplifyapp.com/
 - Source repository: `[PENDING]`
 - Demo video: `[PENDING]`
-- Architecture diagram: `public/img/AYNI-AWS-Architecture.svg`
+- Current architecture: `docs/architecture.md`
 
-Replace every `[PENDING]` value only after verifying the public artifact.
+Replace the remaining `[PENDING]` values only after verifying each public artifact.
