@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" style="width:100%;height:auto;display:block" role="img" aria-labelledby="title description">
+  <title id="title">Arquitectura AWS de AYNI Twin</title>
+  <desc id="description">El docente usa AYNI Twin en Amplify. API Gateway conecta con Lambda, DynamoDB, Bedrock y CloudWatch, manteniendo revisión humana y fallback local.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#245b78" flood-opacity="0.11"/>
+    </filter>
+    <linearGradient id="thread" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c95f4a"/>
+      <stop offset="0.5" stop-color="#d58b32"/>
+      <stop offset="1" stop-color="#177e78"/>
+    </linearGradient>
+    <style>
+      .label{font:700 20px Manrope,Segoe UI,sans-serif;fill:#17324d}.small{font:500 15px Manrope,Segoe UI,sans-serif;fill:#52697c}.kicker{font:800 14px Manrope,Segoe UI,sans-serif;letter-spacing:2.5px;fill:#177e78}.title{font:750 38px Manrope,Segoe UI,sans-serif;fill:#17324d}.node{fill:#fff;stroke:#d8e2de;stroke-width:2}.flow{fill:none;stroke:#177e78;stroke-width:4;stroke-linecap:round}.flow-muted{fill:none;stroke:#9bbab4;stroke-width:3;stroke-linecap:round;stroke-dasharray:8 12}.pill{fill:#eaf4f2}.number{font:800 15px Manrope,Segoe UI,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f5f7f2"/>
+  <circle cx="1510" cy="80" r="210" fill="#eaf4f2" opacity=".72"/>
+  <circle cx="80" cy="850" r="260" fill="#f8efe7" opacity=".78"/>
+  <path d="M90 96 C380 20 620 165 850 72 C1060 -12 1250 35 1505 122" fill="none" stroke="url(#thread)" stroke-width="6" stroke-linecap="round"/>
+  <text x="100" y="180" class="kicker">AYNI TWIN · AWS ZERO TO SHIPPED 2026</text>
+  <text x="100" y="232" class="title">De una señal educativa a una acción humana verificable</text>
+  <text x="100" y="269" class="small">Arquitectura serverless con datos sintéticos, riesgo explicable y respaldo local.</text>
+
+  <path d="M315 480 C365 480 385 480 425 480" class="flow"/>
+  <path d="M680 480 C725 480 745 480 790 480" class="flow"/>
+  <path d="M1045 480 C1090 480 1110 480 1155 480" class="flow"/>
+  <path d="M1285 415 C1285 365 1285 340 1285 308" class="flow-muted"/>
+  <path d="M1325 480 C1390 480 1420 480 1485 480" class="flow-muted"/>
+  <path d="M1285 545 C1285 600 1285 625 1285 665" class="flow-muted"/>
+
+  <g filter="url(#shadow)">
+    <rect x="100" y="374" width="215" height="212" rx="34" class="node"/>
+    <circle cx="207" cy="435" r="31" fill="#eaf4f2"/>
+    <circle cx="207" cy="426" r="9" fill="#177e78"/>
+    <path d="M181 466 Q207 443 233 466" fill="none" stroke="#177e78" stroke-width="8" stroke-linecap="round"/>
+    <text x="207" y="515" text-anchor="middle" class="label">Docente tutor</text>
+    <text x="207" y="544" text-anchor="middle" class="small">revisa y aprueba</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="425" y="350" width="255" height="260" rx="34" class="node"/>
+    <rect x="460" y="386" width="64" height="64" rx="20" fill="#eaf4f2"/>
+    <path d="M475 434 C488 392 498 392 511 434 M481 425 C494 411 502 411 516 425" fill="none" stroke="#177e78" stroke-width="4" stroke-linecap="round"/>
+    <text x="460" y="494" class="kicker">EXPERIENCIA</text>
+    <text x="460" y="528" class="label">Next.js en Amplify</text>
+    <text x="460" y="558" class="small">Modo demo + API real</text>
+    <rect x="460" y="575" width="154" height="27" rx="14" class="pill"/>
+    <text x="537" y="594" text-anchor="middle" class="small" style="font-size:13px">Fallback resiliente</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="790" y="374" width="255" height="212" rx="34" class="node"/>
+    <circle cx="838" cy="422" r="22" fill="#245b78"/>
+    <text x="838" y="423" class="number">2</text>
+    <text x="878" y="428" class="label">API Gateway</text>
+    <path d="M824 468 H1010" stroke="#d8e2de" stroke-width="2"/>
+    <text x="824" y="507" class="label">AWS Lambda</text>
+    <text x="824" y="537" class="small">validación y orquestación</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1155" y="382" width="260" height="196" rx="34" fill="#fff" stroke="#177e78" stroke-width="3"/>
+    <circle cx="1285" cy="427" r="25" fill="#177e78"/>
+    <text x="1285" y="428" class="number">3</text>
+    <text x="1285" y="484" text-anchor="middle" class="label">Núcleo serverless</text>
+    <text x="1285" y="517" text-anchor="middle" class="small">mínimo privilegio</text>
+    <text x="1285" y="544" text-anchor="middle" class="small">salidas estructuradas</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1155" y="176" width="260" height="132" rx="28" class="node"/>
+    <circle cx="1196" cy="217" r="19" fill="#f8efe7"/>
+    <path d="M1185 217 H1207 M1196 206 V228" stroke="#d58b32" stroke-width="4" stroke-linecap="round"/>
+    <text x="1228" y="222" class="label">Amazon Bedrock</text>
+    <text x="1190" y="264" class="small">Borrador del plan de apoyo</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1155" y="665" width="260" height="132" rx="28" class="node"/>
+    <ellipse cx="1198" cy="709" rx="21" ry="9" fill="#eaf4f2" stroke="#177e78" stroke-width="3"/>
+    <path d="M1177 709 V735 C1177 747 1219 747 1219 735 V709" fill="#eaf4f2" stroke="#177e78" stroke-width="3"/>
+    <text x="1238" y="717" class="label">DynamoDB</text>
+    <text x="1190" y="765" class="small">Perfiles, planes y resultados</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1420" y="414" width="145" height="132" rx="28" class="node"/>
+    <path d="M1455 491 L1474 468 L1492 481 L1514 450 L1532 459" fill="none" stroke="#c95f4a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1492" y="519" text-anchor="middle" class="label" style="font-size:17px">CloudWatch</text>
+  </g>
+
+  <rect x="100" y="696" width="855" height="104" rx="28" fill="#fff" stroke="#d8e2de" stroke-width="2"/>
+  <rect x="126" y="722" width="180" height="50" rx="25" fill="#eaf4f2"/>
+  <text x="216" y="752" text-anchor="middle" class="kicker" style="letter-spacing:1.2px">REVISIÓN HUMANA</text>
+  <text x="336" y="741" class="label" style="font-size:18px">El modelo no calcula el riesgo ni decide la intervención.</text>
+  <text x="336" y="769" class="small">Cada plan es editable, requiere aprobación y puede compararse con evidencia observada.</text>
+</svg>

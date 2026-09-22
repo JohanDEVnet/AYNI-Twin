@@ -1,0 +1,161 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Backend reproducible para el MVP de AYNI Twin.
+
+Parameters:
+  StageName:
+    Type: String
+    Default: demo
+    AllowedPattern: "^[a-z0-9-]+$"
+  AllowedOrigin:
+    Type: String
+    Default: http://localhost:3000
+  BedrockModelId:
+    Type: String
+    Default: amazon.nova-lite-v1:0
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures:
+      - arm64
+    MemorySize: 256
+    Timeout: 20
+    Tracing: Active
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref AyniTwinTable
+        BEDROCK_MODEL_ID: !Ref BedrockModelId
+        ALLOWED_ORIGIN: !Ref AllowedOrigin
+        APP_STAGE: !Ref StageName
+
+Resources:
+  AyniTwinApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: !Ref StageName
+      CorsConfiguration:
+        AllowOrigins:
+          - !Ref AllowedOrigin
+        AllowHeaders:
+          - Content-Type
+          - X-Request-Id
+        AllowMethods:
+          - GET
+          - POST
+          - PATCH
+          - OPTIONS
+        MaxAge: 600
+      AccessLogSettings:
+        DestinationArn: !GetAtt ApiAccessLogGroup.Arn
+        Format: '{ "requestId":"$context.requestId", "routeKey":"$context.routeKey", "status":"$context.status", "responseLength":"$context.responseLength", "integrationError":"$context.integrationErrorMessage" }'
+
+  ApiAccessLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/http-api/ayni-twin-${StageName}
+      RetentionInDays: 14
+
+  AyniTwinTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ayni-twin-api-${StageName}
+      CodeUri: functions/api/
+      Handler: index.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AyniTwinTable
+        - Statement:
+            - Sid: GenerateInterventionPlan
+              Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource: !Sub arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}
+      Events:
+        ListStudents:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /students
+            Method: GET
+        GetStudent:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /students/{id}
+            Method: GET
+        CreateScenario:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /students/{id}/scenarios
+            Method: POST
+        ListScenarios:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /students/{id}/scenarios
+            Method: GET
+        CreatePlan:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /students/{id}/intervention-plan
+            Method: POST
+        CreateIntervention:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /interventions
+            Method: POST
+        UpdateIntervention:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /interventions/{id}
+            Method: PATCH
+        GetImpact:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AyniTwinApi
+            Path: /impact
+            Method: GET
+
+  ApiFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    DependsOn: ApiFunction
+    Properties:
+      LogGroupName: !Sub /aws/lambda/ayni-twin-api-${StageName}
+      RetentionInDays: 14
+
+Outputs:
+  ApiUrl:
+    Description: URL base de la API de AYNI Twin.
+    Value: !Sub https://${AyniTwinApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/${StageName}
+  TableName:
+    Description: Tabla DynamoDB del MVP.
+    Value: !Ref AyniTwinTable
+  FunctionName:
+    Description: Lambda principal del backend.
+    Value: !Ref ApiFunction

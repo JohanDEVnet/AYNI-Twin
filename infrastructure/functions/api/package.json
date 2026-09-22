@@ -1,0 +1,14 @@
+{
+  "name": "ayni-twin-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run domain.test.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.893.0",
+    "@aws-sdk/client-dynamodb": "^3.893.0",
+    "@aws-sdk/lib-dynamodb": "^3.893.0"
+  }
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Avatar neutral de docente AYNI Twin</title>
+  <desc id="desc">Figura humana abstracta sin género que conecta y acompaña varias trayectorias.</desc>
+  <defs>
+    <clipPath id="avatar-circle">
+      <circle cx="256" cy="256" r="244"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#avatar-circle)">
+    <rect width="512" height="512" fill="#EAF4F2"/>
+    <path d="M-32 167C88 129 151 151 223 215S368 305 548 259" fill="none" stroke="#F5F7F2" stroke-width="62" stroke-linecap="round"/>
+    <path d="M-28 389C101 330 168 352 247 303S397 211 548 229" fill="none" stroke="#D7EAE6" stroke-width="46" stroke-linecap="round"/>
+
+    <path d="M256 260C207 235 165 194 121 140" fill="none" stroke="#245B78" stroke-width="10" stroke-linecap="round"/>
+    <path d="M256 260C306 220 348 180 397 132" fill="none" stroke="#177E78" stroke-width="10" stroke-linecap="round"/>
+    <path d="M256 260C316 275 364 303 423 353" fill="none" stroke="#4E8C63" stroke-width="10" stroke-linecap="round"/>
+    <path d="M256 260C205 292 162 326 111 373" fill="none" stroke="#D58B32" stroke-width="10" stroke-linecap="round"/>
+
+    <circle cx="121" cy="140" r="17" fill="#245B78"/>
+    <circle cx="397" cy="132" r="17" fill="#177E78"/>
+    <circle cx="423" cy="353" r="17" fill="#4E8C63"/>
+    <circle cx="111" cy="373" r="17" fill="#D58B32"/>
+
+    <circle cx="256" cy="207" r="55" fill="#17324D"/>
+    <path d="M151 432C151 329 193 278 256 278S361 329 361 432Z" fill="#17324D"/>
+    <path d="M189 432C193 359 213 321 256 321S319 359 323 432Z" fill="#245B78"/>
+    <circle cx="256" cy="265" r="17" fill="#EAF4F2"/>
+  </g>
+
+  <circle cx="256" cy="256" r="244" fill="none" stroke="#D8E2DE" stroke-width="8"/>
+</svg>
